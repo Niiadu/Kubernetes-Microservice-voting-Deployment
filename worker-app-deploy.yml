@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-app-deployment
+  labels:
+    name: worker-app-deploy
+    app: demo-voting-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-app-demo
+      name: worker-app-prod
+  template:
+    metadata:
+      name: worker-app-demo
+      labels:
+        app: worker-app-demo
+        name: worker-app-prod
+    spec:
+      containers:
+      - name: worker-app
+        image: kodekloud/examplevotingapp_worker:v1
