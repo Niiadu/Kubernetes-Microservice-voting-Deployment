@@ -71,8 +71,8 @@ spec:
 ```
 
 ### Redis Deployment and Service
-yaml
-Copy code
+
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -110,9 +110,10 @@ spec:
   selector:
     name: redis-deploy
     app: redis-demo-deploy
-Results App Deployment and Service
-yaml
-Copy code
+```
+
+**Results App Deployment and Service**
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -151,9 +152,9 @@ spec:
   selector:
     app: results-app-demo
     name: results-app-prod
-Voting App Deployment and Service
-yaml
-Copy code
+```
+**Voting App Deployment and Service**
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -186,9 +187,10 @@ spec:
   selector:
     app: voting-app-demo
     name: voting-app-prod
-Worker App Deployment
-yaml
-Copy code
+```
+**Worker App Deployment**
+
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -212,12 +214,12 @@ spec:
       containers:
       - name: worker-app
         image: kodekloud/examplevotingapp_worker:v1
-Deploying with Terraform
+```
+## Deploying with Terraform
 To deploy these Kubernetes resources using Terraform, you need to create a Terraform configuration file that defines your Kubernetes provider and the resources. Below is an example Terraform configuration for deploying the PostgreSQL service.
 
-Terraform Configuration
-hcl
-Copy code
+**Terraform Configuration**
+```
 provider "kubernetes" {
   config_path = "~/.kube/config"
 }
@@ -281,14 +283,16 @@ resource "kubernetes_service" "postgres" {
     }
   }
 }
-Applying the Configuration
+```
+## Applying the Configuration
 To apply the Terraform configuration and deploy your resources, run the following commands:
 
-sh
-Copy code
+```
 terraform init
+terraform plan
 terraform apply
-Conclusion
+```
+## Conclusion
 In this blog post, we've covered how to deploy a multi-component application using Kubernetes and Terraform. This approach simplifies the management of your infrastructure and ensures consistency across environments. Feel free to extend this example by adding more components or integrating it with other tools and services.
 
 Happy coding!
