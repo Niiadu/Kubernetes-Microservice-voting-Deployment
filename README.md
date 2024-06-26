@@ -2,28 +2,28 @@
 Introduction
 In this blog post, I'll walk you through the process of deploying a multi-component application using Kubernetes and Terraform. The application consists of a PostgreSQL database, a Redis instance, a voting app, a results app, and a worker app. Each component is managed as a Kubernetes deployment and exposed via a Kubernetes service. By the end of this guide, you'll have a fully functioning application running on your Kubernetes cluster.
 
-Prerequisites
+## Prerequisites
 Before we get started, ensure you have the following installed:
 
-Terraform
-kubectl
-A Kubernetes cluster (local or cloud-based)
-Project Structure
+* Terraform
+* kubectl
+* A Kubernetes cluster (local or cloud-based)
+## Project Structure
 Here’s an overview of what we’ll be deploying:
 
-PostgreSQL Database
-Redis Instance
-Voting App
-Results App
-Worker App
+1. PostgreSQL Database
+2. Redis Instance
+3. Voting App
+4. Results App
+5. Worker App
 Each component will be defined as a Kubernetes deployment and exposed via a Kubernetes service.
 
-Kubernetes Manifests
+## Kubernetes Manifests
 Below are the Kubernetes manifests for each component.
 
-PostgreSQL Deployment and Service
-yaml
-Copy code
+### PostgreSQL Deployment and Service
+
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -68,7 +68,9 @@ spec:
   selector:
     name: postgres-deploy
     app: postgres-demo-deploy
-Redis Deployment and Service
+```
+
+### Redis Deployment and Service
 yaml
 Copy code
 apiVersion: apps/v1
