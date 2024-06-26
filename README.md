@@ -21,7 +21,7 @@ Each component will be defined as a Kubernetes deployment and exposed via a Kube
 ## Kubernetes Manifests
 Below are the Kubernetes manifests for each component.
 
-### PostgreSQL Deployment and Service
+**PostgreSQL Deployment and Service**
 
 ```
 apiVersion: apps/v1
